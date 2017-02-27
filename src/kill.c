@@ -11,7 +11,7 @@ int main(void) {
   pid = fork();
   if (pid==0) {
     int i;
-    for (i=1; i<1000000; i++) {
+    for (i=1; i<10000; i++) {
       printf ("%c", 'H');
       if ((i%60)==0) printf ("\n");
     }
@@ -22,8 +22,13 @@ int main(void) {
     scanf("%c", &c);
     result = kill(pid, SIGKILL);
     printf ("[P] SIGKILL sent to pid=%d with result=%d\n", pid, result);
+    
     result = wait(&status);
-    printf("[P] pid=%d finished with HIGH(status)=%d and LOW(status)=%d\n", result, _HIGH(status), _LOW(status));
+    
+    if (WIFEXITED(status))
+      printf("[P] pid=%d finished with status=%d\n", result, WEXITSTATUS(status));
+    else
+      printf("[P] pid=%d killed by signal=%d\n", result, status & 0xf);
   }
 
   return 0;
