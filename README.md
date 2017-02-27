@@ -11,4 +11,4 @@ El objetivo principal de esta práctica es entender y aprender a manejar algunas
 
 ## Desarrollo de la práctica
 
-Para realizar la práctica sigue las instrucciones de este guión:
+Para realizar la práctica sigue las instrucciones de este guión: [practica-llamadas.pdf](https://github.com/ULE-ASSOO-1617/practica-2/blob/master/practica-llamadas.pdf).
